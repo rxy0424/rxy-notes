@@ -1,0 +1,92 @@
+%!TEX encoding = UTF-8 Unicode
+
+\documentclass[12pt]{article}
+\usepackage{geometry}
+\geometry{letterpaper}
+
+\usepackage{fontspec}
+\usepackage{xltxtra}
+\usepackage{xunicode}
+\defaultfontfeatures{Mapping=tex-text}
+\setromanfont{宋体-简} %设置中文字体
+\XeTeXlinebreaklocale “zh”
+\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt %文章内中文自动换行
+
+\newfontfamily{\K}{楷体-简}
+\newfontfamily{\H}{Helvetica} %设定新的字体快捷命令
+\title{任昕旸同志关于VIM的学习笔记}
+\author{任昕旸}
+
+\date{\today}
+\begin{document}
+\maketitle
+\section{Latex-suite}
+\subsection{Macros}
+当你在一个空文件里按$F5$是可以插入一个environment，在一个已经存在的word上用这个时，
+会使这成为使用的package
+\subsubsection{环境映射}
+在visual model中有一些个映射：
+
+\begin{enumerate}
+    \item F5：会让你选择一个环境，将你选中的东西包起来
+    \item ,加两个小写字母：好像只在行模式下有用
+\end{enumerate}
+
+使用<S-F5>可以改变当前的环境,在normal和visual model中按<F5>有一样的作用。
+
+所有的enviroment都被映射到了三个大写字母
+
+在insert或normal模式中按<F7>可以把光标下单词当成命令，同理，使用<S-F7>可以改变之。
+
+FEM 可以插入一下emph命令
+
+
+    SPA for part
+    SCH for chapter
+    SSE for section
+    SSS for subsection
+    SS2 for subsubsection
+    SPG for paragraph
+    SSP for subparagraph
+
+
+希腊字母映射
+\begin{enumerate}
+    \item \`d =$ \Delta$
+    \item \`f =$ \Phi$
+    \item \`g =$ \Gamma$
+    \item \`q =$ \Theta$
+    \item \`L =$ \Lambda$
+    \item \`X =$ \Xi$
+    \item \`Y =$ \Psi$
+    \item \`S =$ \Sigma$
+    \item \`U =$ \Upsilon$
+    \item \`W =$ \Omega$
+\end{enumerate}
+
+
+一些其他映射：
+\begin{enumerate}
+    \item \`/: $\frac{1}{2}$
+\end{enumerate}
+
+\begin{enumerate}
+    \item  aaa
+    \item 
+    \item 
+    \item 
+\end{enumerate}
+在可视模式下使用：
+
+\begin{verbatim}
+`(  encloses selection in \left( and \right)
+`[  encloses selection in \left[ and \right]
+`{  encloses selection in \left\{ and \right\}
+`$  encloses selection in $$ or \[ \] depending on characterwise or
+\end{verbatim}
+
+
+\\
+\H information\\
+\K 楷体
+\end{document}
