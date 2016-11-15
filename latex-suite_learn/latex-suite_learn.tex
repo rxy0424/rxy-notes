@@ -1,25 +1,19 @@
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt]{article}
+\documentclass[UTF8]{ctexart}
 \usepackage{geometry}
 \geometry{letterpaper}
-
 \usepackage{fontspec}
 \usepackage{xltxtra}
 \usepackage{xunicode}
-\defaultfontfeatures{Mapping=tex-text}
-\setromanfont{宋体-简} %设置中文字体
-\XeTeXlinebreaklocale “zh”
-\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt %文章内中文自动换行
 
-\newfontfamily{\K}{楷体-简}
-\newfontfamily{\H}{Helvetica} %设定新的字体快捷命令
 \title{任昕旸同志关于VIM的学习笔记}
 \author{任昕旸}
 
 \date{\today}
 \begin{document}
 \maketitle
+\tableofcontents
 \section{Latex-suite}
 \subsection{Macros}
 当你在一个空文件里按$F5$是可以插入一个environment，在一个已经存在的word上用这个时，
@@ -41,40 +35,32 @@
 FEM 可以插入一下emph命令
 
 
-    SPA for part
-    SCH for chapter
-    SSE for section
-    SSS for subsection
-    SS2 for subsubsection
-    SPG for paragraph
-    SSP for subparagraph
+    SPA for part         \\
+    SCH for chapter      \\
+    SSE for section      \\
+    SSS for subsection   \\
+    SS2 for subsubsection\\
+    SPG for paragraph    \\
+    SSP for subparagraph \\
 
 
 希腊字母映射
 \begin{enumerate}
-    \item \`d =$ \Delta$
-    \item \`f =$ \Phi$
-    \item \`g =$ \Gamma$
-    \item \`q =$ \Theta$
-    \item \`L =$ \Lambda$
-    \item \`X =$ \Xi$
-    \item \`Y =$ \Psi$
-    \item \`S =$ \Sigma$
-    \item \`U =$ \Upsilon$
-    \item \`W =$ \Omega$
+    \item `d =$ \Delta$
+    \item `f =$ \Phi$
+    \item `g =$ \Gamma$
+    \item `q =$ \Theta$
+    \item `L =$ \Lambda$
+    \item `X =$ \Xi$
+    \item `Y =$ \Psi$
+    \item `S =$ \Sigma$
+    \item `U =$ \Upsilon$
+    \item `W =$ \Omega$
 \end{enumerate}
-
 
 一些其他映射：
 \begin{enumerate}
-    \item \`/: $\frac{1}{2}$
-\end{enumerate}
-
-\begin{enumerate}
-    \item  aaa
-    \item 
-    \item 
-    \item 
+    \item `/: \verb" \frac{}{} "
 \end{enumerate}
 在可视模式下使用：
 
@@ -85,8 +71,17 @@ FEM 可以插入一下emph命令
 `$  encloses selection in $$ or \[ \] depending on characterwise or
 \end{verbatim}
 
+\begin{equation}
+    a_b
+    \label{eqn:a}
+\end{equation}
 
-\\
-\H information\\
-\K 楷体
+\begin{equation}
+    b_a
+    \label{eqn:b}
+\end{equation}
+
+\subsubsection{completion}
+在一个\verb" \ref{} " 命令里按<F9>将在下方打开一个客口，从中可以找到所有可用的引用
+\ref{eqn:a}
 \end{document}
