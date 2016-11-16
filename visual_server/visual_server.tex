@@ -1,19 +1,8 @@
 %!TEX encoding = UTF-8 Unicode
 
-\documentclass[12pt]{article}
-\usepackage{geometry}
-\geometry{letterpaper}
+\documentclass[UTF8]{ctexart}
+\bibliographystyle{plain}
 
-\usepackage{fontspec}
-\usepackage{xltxtra}
-\usepackage{xunicode}
-\defaultfontfeatures{Mapping=tex-text}
-\setromanfont{宋体-简} %设置中文字体
-\XeTeXlinebreaklocale “zh”
-\XeTeXlinebreakskip = 0pt plus 1pt minus 0.1pt %文章内中文自动换行
-
-\newfontfamily{\K}{楷体-简}
-\newfontfamily{\H}{Helvetica} %设定新的字体快捷命令
 \title{视觉伺服课堂笔记}
 \author{任昕旸}
 \date{\today}
@@ -21,6 +10,9 @@
 \maketitle
 \section{第一课}
 感觉老师讲的都 是一些简介，这是为什么啊。
-\H information\\
-\K 楷体
+\nocite{*}
+\cite{chaumette2006visual}
+
+
+\bibliography{tex}
 \end{document}
