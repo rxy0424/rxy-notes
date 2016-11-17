@@ -1,0 +1,109 @@
+\documentclass[UTF8]{ctexbook}
+
+\usepackage{theorem}
+\usepackage{amssymb}
+
+\newtheorem{definition}{定义}[chapter]
+\newtheorem{thm}{定理}[chapter]
+
+\newcommand{\jhshi}[1]{\overline{\overline{#1}}}
+
+\title{任昕旸同志的泛函分析笔记}
+\author{任昕旸}
+\date{\today}
+
+\begin{document}
+\maketitle
+\tableofcontents
+
+\chapter{预备知识}
+\section{集合的一般知识}
+\subsection{集合及其运算}
+特殊集合有全集和空集，集合的关系有交、并补三种。
+
+一个比较重要的公式，De Morgan公式：
+\begin{equation}
+    (\bigcup_{i \in I} A_i)^C = \bigcap_{i \in I} A_i^C
+\end{equation}
+
+\begin{equation}
+    (\bigcap_{i \in I} A_i)^C = \bigcup_{i \in I} A_i^C
+\end{equation}
+
+还有直积
+\begin{equation}
+    \prod_{k=1}^n A_k = \{ (x_1,x_2,\cdots,x_n)|x_k \in A_k,k=1,2,3,\cdots,n \}
+\end{equation}
+
+\begin{definition}
+    设$A$,$B$是两个集合，如果存在由$A$到$B$上的一对一映射$T$，则说$A$与$B$成
+    一一对应或称$A$与$B$对等，记为$A \sim B$。
+\end{definition}
+
+由定义可知其有三个基本性质：
+\begin{enumerate}
+    \item 自反性：$A \sim A$
+    \item 对称性:若$A \sim B$,则$B \sim B$
+    \item 传递性:若$A \sim B, B \sim C$,则$A \sim B$
+\end{enumerate}
+
+\subsection{可列集}
+\begin{definition}
+    若$A$与$B$对等，则说$A$与$B$有相同的势（或基数），记$A$的势为$\overline{\overline A}$，
+    $B$的势为$\overline {\overline {B}}$，则$\overline{\overline {A}} = \overline{\overline {B}}$
+\end{definition}
+
+
+\begin{definition}
+    对$\alpha \in \Gamma$,称$\{ A_{\alpha} \}_{\alpha \in \Gamma}$为定义在$\Gamma$
+    上的集族，若$\Gamma = N$，则称其为集列。
+\end{definition}
+
+\begin{definition}
+    集族的交
+    \begin{equation}
+    \bigcap_{\alpha \in \Gamma} A_{\alpha} 
+    = \{ x \in X \mid \forall \alpha \in \Gamma ,
+        x \in A_{\alpha} \}
+    \end{equation}
+\end{definition}
+
+\begin{definition}
+    集族的并
+    \begin{equation}
+    \bigcup_{\alpha \in \Gamma} A_{\alpha} 
+    = \{ x \in X \mid \exists \alpha \in \Gamma ,
+    x \in A_{\alpha} \}
+    \end{equation}
+\end{definition}
+
+\begin{thm}
+    无限集必与它的某个真子集对等.
+\end{thm}
+
+\begin{definition}
+    凡与自然数集$N$对等的集合称为可列集(或可数集).
+\end{definition}
+
+\begin{thm}
+    任意无限集必含有可列子集.
+\end{thm}
+
+\begin{thm}
+    有限集或可列个可列集的并仍是可列集;可列个有限集的并(若为无限集),也是可列集.
+\end{thm}
+
+\begin{thm}
+    有一组可列集$\{ A_1, A_2, \cdots, A_n \}$,则直积$ \prod_{k=1}^n A_k $也是可列集.
+\end{thm}
+
+\begin{thm}
+    点集$ ( 0, 1)  = \{ x \in R \mid 0 <  x <  1 \} $是不可列的无限集.
+\end{thm}
+
+\begin{thm}
+    设$A$为有限集可列集,$B$是任一无限集,则$\jhshi{A \cup B} = \jhshi B$
+\end{thm}
+
+
+\end{document}
