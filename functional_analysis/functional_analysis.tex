@@ -1,6 +1,7 @@
 \documentclass[UTF8]{ctexbook}
 
 \usepackage{theorem}
+\usepackage{amsmath}
 \usepackage{amssymb}
 
 \newtheorem{definition}{定义}[chapter]
@@ -82,7 +83,7 @@
 \end{thm}
 
 \begin{definition}
-    凡与自然数集$N$对等的集合称为可列集(或可数集).
+    凡与自然数集$N$对等的集合称为可列集 (或可数集).
 \end{definition}
 
 \begin{thm}
@@ -105,5 +106,74 @@
     设$A$为有限集可列集,$B$是任一无限集,则$\jhshi{A \cup B} = \jhshi B$
 \end{thm}
 
+\section{实数的集的基本结构}
+\subsection{代数结构}
+$N$、$Z$不是数域
+
+\subsection{有序结构}
+\begin{definition}
+    设$x \in A \subseteq R$,如果$\exists M > 0, |x| \leq M$,则$x$有界.
+\end{definition}
+
+\begin{definition}
+    若$\exists a, b \in R , \forall x, a \leq x \leq b$,则$a$为下界,$b$为上界.
+\end{definition}
+
+\begin{definition}
+    设$E \subseteq R$,$\exists \beta \in R$,使
+    \begin{enumerate}
+        \item $\forall x \in R$有$x \leq \beta$
+        \item $\forall  \beta' < \beta$,$\exists x_0 > \beta'$
+    \end{enumerate}
+    其中第2条等价于$\forall \epsilon$,$\exists x_0 \in R$,使$x_0 > \beta - \epsilon$
+    
+    则称$\beta $为$E$的上界,记为$\beta = \sup E$
+\end{definition}
+
+相应下界记为$\alpha = \inf E$
+
+如果有最大、最小值和上、下确界则它们对应相等。
+
+\begin{thm}
+    确界定理：$R$中有上界或下界的集合，必有对应的确界。
+\end{thm}
+
+\begin{thm}
+    单调有界定理：单调增（或减），有上界（下界）的数列一定收敛。
+
+    单调有界域必收敛。
+\end{thm}
+
+\subsection{度量结构 (实数是一个完整的度量空间)}
+
+
+\begin{definition}
+    柯西数列：$\forall \epsilon$,$\exists N > 0 $当$n,m > N$时,有$|x_n - x_m| < \epsilon$
+    
+    或：$\forall \epsilon$,$\exists N > 0 $当$n > N$时,对所有$p > 0$,有$|x_n - x_{m + p}| < \epsilon$
+\end{definition}
+
+\begin{thm}
+    柯本收敛准则：$R$中任意柯西数列都是收敛的，反之亦然。
+\end{thm}
+
+\begin{thm}
+    聚点定理：有界数列必有收敛子列。
+\end{thm}
+
+\begin{thm}
+    区间套定理：设$[ a_n, b_n ] $是$R$区间里的区间列，如果$[a_{n+1},b_{n+1}]
+    \subseteq [ a_n, b_n ]$,且$ \lim_{n \to \infty} (b_n - a_n) = 0$,则
+    存在唯一实数$\xi \in [a_n, b_n]$,$ n = 1, 2,3 ,\cdots$
+\end{thm}
+
+\begin{definition}
+    设$\{x_n\}$为实数列,定义$\{x_n\}$的上极限$\varlimsup\limits_{n \to \infty} x_n$,和下
+    极限$\varliminf\limits_{n \to \infty} x_n$为
+    \begin{enumerate}
+        \item $\varlimsup\limits_{n \to \infty} x_n = \inf\limits_{k \geq 1}( \sup\limits_{n \geq k} x_n) $
+        \item $\varliminf\limits_{n \to \infty} x_n = \sup\limits_{k \geq 1}( \inf\limits_{n \geq k} x_n) $
+    \end{enumerate}
+\end{definition}
 
 \end{document}
