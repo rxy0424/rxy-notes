@@ -3,6 +3,7 @@
 \usepackage{theorem}
 \usepackage{amsmath}
 \usepackage{amssymb}
+\usepackage{mathtools}
 
 \newtheorem{definition}{定义}[chapter]
 \newtheorem{thm}{定理}[chapter]
@@ -176,4 +177,147 @@ $N$、$Z$不是数域
     \end{enumerate}
 \end{definition}
 
+\section{函数列及函数项级数的收敛性}
+\subsection{一致连续和一致收敛}
+\begin{definition}
+    设$E$是$R$的子集，$f$是$E$到$R$的函数，$x_0 \in E$,若对$\forall \epsilon > 0$
+    ,$\exists \delta>0$,使当$x \in E \cup (x_0-\delta,x_0+\delta)$时，有
+    $|f(x) - f(x_0) |< \epsilon$则称$f$在$x_0$点连续；若$f$在$E$上每一点都连续，
+    则称$f$在$E$上连续.
+\end{definition}
+
+\begin{definition}
+    设$E$是$R$的子集，$f$是$E$到$R$的函数，若对任意给定的$\epsilon > 0$
+    ,存在$\delta > 0$，当$x_1, x_2 \in E$，只要$|x_1 - x_2 |< \delta$，就有
+    $| f(x_1) - f(x_2) | < \epsilon$，则称$f$在$E$上一致连续。
+\end{definition}
+
+一致连续是整体概念
+
+例 对$\forall a \in (0,1)$，$f(x) = \frac1x $在$[a,1]$上是一致连续的。
+
+一致连续必定连续，反之不一定成立。
+
+\begin{thm}
+    康托一致连续定理：设$f(x)$在$[a,b]$上连续，则$f(x)$在$[a,b]$上一致连续。即闭
+    区间上的连续函数一定一致连续。
+\end{thm}
+
+\begin{definition}
+    设$E$是$R$的子集，$\{f_n\}$是定义在$E$上的函数列，$f$是$E$上的函数，如果对
+    每一个$x \in E$，有$\lim_{n \to \infty} f_n(x)=f(x) $,则称$\{f_n\}$在$E$
+    上收敛于$f$,并称$f$是$\{f_n\}$在$E$上的极限函数
+\end{definition}
+
+\begin{definition}
+    设$E$是$R$的子集，$\{f_n\}$是在定义在$E$上的函数列,$f$是$E$上的函数，若对任意
+    给定的$\epsilon > 0$，存在自然数$N$，使$n > N$对于一切$x \in E$,恒有
+    \[| f_n(x) - f(x) | < \epsilon\]
+    则称$\{f_n\}$一致收敛于$f$，并记$f_n \Rightarrow f (n \to \infty)$
+\end{definition}
+
+
+\begin{thm}
+    设$f_n [a,b] \to R$是函数列，若$f_n$在$[a,b]$上连续，并且一致收敛于$f(x)$,则
+    $f(x)$也连续，且
+    \[\lim_{x \to x_0} \lim_{n \to \infty}f_n(x) =
+    \lim_{n \to \infty}\lim_{x \to x_0} f_n(x)\]
+\end{thm}
+
+\begin{thm}
+    设$f_n [a,b] \to R$是函数列，若$f_n$在$[a,b]$上可积，并且一致收敛于$f(x)$,则
+    $f(x)$也可积，且
+    \[\int_a^b \lim_{n \to \infty}f_n(x) =
+    \lim_{n \to \infty}\int_a^b f_n(x) = \int_a^b f(x)\]
+\end{thm}
+
+\begin{thm}
+    设$f_n [a,b] \to R$是函数列，若
+    \begin{enumerate}
+        \item $f_n$一致收敛于$f(x)$
+        \item $f_n$连续可微(可微导函数连续)
+        \item $f_n$的导函数一致收敛于$g(x)$
+    \end{enumerate}
+    则$f(x)$也可微并且$f'(x) = g(x)$即
+    \[ \frac{d}{dx} \lim_{n \to \infty} f_n(x) = \lim_{n \to \infty} 
+    \frac{d}{dx} f_n(x)\]
+\end{thm}
+
+\section{Lebesgue积分}
+
+黎曼积分是将$[a,b]$区间做分割。
+
+设$I = \lim_{n \to \infty} \sum^{n}_{j=1}  f(\epsilon_j) \triangle x$ 若此值对任意划分都存在且相等
+则记$I = \int_a^b f(x) dx$
+
+但对有些函数并不能求出其导，例如
+\[
+    D(x) =
+    \begin{dcases}
+        1, & x\text{是有理数} \\
+        0, & x\text{是无理数}
+    \end{dcases}
+\]
+
+而Lebesgue积分的主要思想是分y轴。
+\[
+    E_i = \{X \in (a,b)| y_{i-1} \le f(x) < y_i \}
+\]
+\[
+    E_i = \{X \in (a,b)| f(x) \le y_{i} \} / \{X \in (a,b)| f(x) \le y_i \}
+\]
+
+\subsection{Lebesgue测度}
+
+区间测试有四种情况：$[a,b]$，$(a,b)$，$(a,b]$，$[a,b)$，$mI$为其区间的测度。
+
+\subsubsection{有界集}
+\begin{definition}
+    开集：设$G \subseteq R, a \in G$，如果$\exists \epsilon > 0$，使
+    $(a,a +\epsilon) \subseteq G$，
+    则称$a$为$G$的内点，称$G$的内战的全体为$G$的内部，
+    记为 $\overset{\circ}G$，或$intG$
+
+    若$G$的每个点都是其内点，则$G$为开集。
+\end{definition}
+
+开集的性质
+\begin{enumerate}
+    \item $R$和$\emptyset$是开集
+    \item 任意开集的并，是开集。
+    \item 有限个开集的交集是开集
+\end{enumerate}
+
+开集的构造：任何一个开集都可以表示为至多可列个互不相交的构成区间的并集。
+
+构成区间指：
+\begin{enumerate}
+    \item $(\alpha ,\beta) \in G$
+    \item $\alpha , \beta \notin G$
+    \item $i \neq j$时，$(\alpha_i, \beta_i) \cap (\alpha_j, \beta_j) = 
+        \emptyset$
+\end{enumerate}
+此时有
+\[
+    G = \bigcup_{n=1}^{\infty}(\alpha_i, \beta_i)
+\]
+
+开集的测度：设$G \subseteq R$为有界开集，$G \subseteq (a,b)$，$mG = \sum^{\infty}_{i=1}
+(\beta_i- \alpha_i) < (b-a)$是收敛的
+
+\begin{definition}
+    设$F \subseteq (a,b)$，是$R$中的有界集，如果$F^c$是开集，则称$F$是闭集。
+\end{definition}
+
+$F$是闭集$\Leftrightarrow$ $\forall x_n \in F$，如果$x_n \rightarrow x$，则
+$x \in F$
+
+闭集的性质：
+\begin{enumerate}
+    \item $\emptyset$,$R$是闭集
+    \item 任意闭集的交集是闭集
+    \item 有限多个闭集的并集是闭集
+\end{enumerate}
+
+闭集的测度：设$F \subseteq (a,b)$是闭集，$mF = b-a - mF^c$
 \end{document}
